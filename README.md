@@ -5,8 +5,9 @@
 
 
 ## 2. 디렉토리구조
-* /1 : 1교시 내용
-* /2 : 2교시 내용 : https://apex.oracle.com/ko/learn/tutorials/
+*  1교시 내용 : 스페이스뱅크 사례 및 Low Code Platform 
+*  2교시 내용 : Oracle Apex 구조 및 특징
+**  https://apex.oracle.com/ko/learn/tutorials/
 * /3 : 3교시 샘플 : https://apex.oracle.com/ko/learn/tutorials/
 * /4 : 4교시 샘플
 

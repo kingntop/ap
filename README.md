@@ -13,7 +13,7 @@
 
 
 ## 3. 강의 참조자료
-###	스프레드시트 개발 - /3/nyc_high_schools.csv
-###	스프레드시트 app - /3/spreadsheet.sql
-###	개념증명 app - /3/poc.sql
-###	온라인 쇼핑 app - /3/shop.sql
+*	스프레드시트 개발 - /3/nyc_high_schools.csv
+*	스프레드시트 app - /3/spreadsheet.sql
+*	개념증명 app - /3/poc.sql
+*	온라인 쇼핑 app - /3/shop.sql

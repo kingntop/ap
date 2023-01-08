@@ -18,4 +18,4 @@
 *	개념증명 app - /3/poc.sql
 *	온라인 쇼핑 app - /3/shop.sql
 
-https://gb9fb258fe17506-apexdb.adb.ap-seoul-1.oraclecloudapps.com/ords/f?p=4500:1000:7004054240153:::::
+https://www.data.go.kr/data/15021148/standard.do?recommendDataYn=Y

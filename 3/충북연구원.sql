@@ -1,10 +1,29 @@
 
+create or replace view vw_충북연구원_위도_경도
+as
+with aa as (
+           select substr(코드, 1,8) 코드, 시도, 시군구, 읍면동, max(위도) 위도, max(경도) 경도
+           from 행정동
+           group by substr(코드, 1,8), 시도, 시군구, 읍면동
+)
+select *
+from 충북연구원, aa
+where 충북연구원.ADMI_CD = aa.코드;
+
+
+
+drop table  충북연구원_위도_경도;
+create table 충북연구원_위도_경도
+AS       
+select 코드, 시도, 시군구, 읍면동, 위도, 경도 from vw_충북연구원_위도_경도
+group by 코드, 시도, 시군구, 읍면동, 위도, 경도;
+
 create or replace view vw_충북연구원
 as
-SELECT x, y, timezn_cd,substr(age_cd, 1,1) mf, substr(age_cd, 2) age_cd, data
+SELECT x, y, 위도, 경도, 시도, 시군구, 읍면동, ETL_YMD, timezn_cd,  substr(age_cd, 1,1) mf, substr(age_cd, 2) age_cd, data
   FROM (
          SELECT *
-           FROM 충북연구원
+           FROM vw_충북연구원_위도_경도
         )
 UNPIVOT (data for age_cd in (
                             M00 AS 'M00', 
@@ -37,9 +56,3 @@ UNPIVOT (data for age_cd in (
                             F70 AS 'F70'
                             )
 );
-
-select mf, age_cd, count(*)
-from vw_충북연구원
-group by mf, age_cd
-
-

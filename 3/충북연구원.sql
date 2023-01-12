@@ -1,24 +1,24 @@
 
-create or replace view vw_충북연구원_위도_경도
+create or replace view vw_AXIS
 as
 with aa as (
            select substr(코드, 1,8) 코드, 시도, 시군구, 읍면동, max(위도) 위도, max(경도) 경도
-           from 행정동
+           from AXIS
            group by substr(코드, 1,8), 시도, 시군구, 읍면동
 )
 select *
-from 충북연구원, aa
-where 충북연구원.ADMI_CD = aa.코드;
+from DATA, aa
+where DATA.ADMI_CD = aa.코드;
 
 
 
-drop table  충북연구원_위도_경도;
-create table 충북연구원_위도_경도
+drop table  T_AXIS;
+create table T_AXIS
 AS       
-select 코드, 시도, 시군구, 읍면동, 위도, 경도 from vw_충북연구원_위도_경도
+select 코드, 시도, 시군구, 읍면동, 위도, 경도 from vw_AXIS
 group by 코드, 시도, 시군구, 읍면동, 위도, 경도;
 
-create or replace view vw_충북연구원
+create or replace view vw_DATA
 as
 SELECT x, y, 위도, 경도, 시도, 시군구, 읍면동, ETL_YMD, timezn_cd,  substr(age_cd, 1,1) mf, substr(age_cd, 2) age_cd, data
   FROM (

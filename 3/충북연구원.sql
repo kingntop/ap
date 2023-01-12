@@ -23,7 +23,7 @@ as
 SELECT x, y, 위도, 경도, 시도, 시군구, 읍면동, ETL_YMD, timezn_cd,  substr(age_cd, 1,1) mf, substr(age_cd, 2) age_cd, data
   FROM (
          SELECT *
-           FROM vw_충북연구원_위도_경도
+           FROM vw_AXIS
         )
 UNPIVOT (data for age_cd in (
                             M00 AS 'M00', 
